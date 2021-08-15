@@ -1,5 +1,5 @@
 import {getItemFromStorage} from "./storage";
-import * as ed from 'noble-ed25519';
+import * as ed from '@starcoin/stc-ed25519';
 import {isEmpty} from 'lodash';
 
 let privateKey,

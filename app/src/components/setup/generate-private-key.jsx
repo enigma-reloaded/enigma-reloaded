@@ -2,7 +2,7 @@ import {useState} from "@hookstate/core";
 import Modal from "../utils/modal";
 import { passwordStrength } from 'check-password-strength'
 import {isEmpty} from 'lodash'
-import {utils as edUtils} from 'noble-ed25519';
+import {utils as edUtils} from '@starcoin/stc-ed25519';
 import {useLocalForage} from "../../lib/hooks/use-local-forage";
 import {setItemInStorage, setStoragePin} from "../../lib/utils/encryption/storage";
 const {randomPrivateKey} = edUtils;
