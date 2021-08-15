@@ -1,20 +1,19 @@
-import {getItemFromStorage} from "./storage";
-import * as ed from '@starcoin/stc-ed25519';
+import {getItemFromStorage} from './storage';
 import {isEmpty} from 'lodash';
 
-let privateKey,
-  publicKey;
+let privateKey;
+let publicKey;
 
-export async function getPrivateKey(){
-  if(!isEmpty(privateKey)) return privateKey
-  return privateKey = await getItemFromStorage('private-key');
+export async function getPrivateKey() {
+  if (!isEmpty(privateKey)) return privateKey;
+  const pk = await getItemFromStorage('key-pair');
+  if (isEmpty(pk)) return;
+  return privateKey = Uint8Array.from(pk.secretKey);
 }
 
-export async function getPublicKey(){
-  if(!isEmpty(publicKey)) return publicKey;
-  
-  let pk = await getPrivateKey();
-  if(isEmpty(pk)) return;
-  pk = Uint8Array.from(pk);
-  return publicKey = await ed.getPublicKey(pk);
+export async function getPublicKey() {
+  if (!isEmpty(publicKey)) return publicKey;
+  const pk = await getItemFromStorage('key-pair');
+  if (isEmpty(pk)) return;
+  return publicKey = Uint8Array.from(pk.publicKey);
 }

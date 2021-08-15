@@ -1,5 +1,5 @@
-import * as Crypto from 'crypto-js';
+import {MD5 as cryptoMd5} from 'crypto-js';
 
-export function md5(str){
-  return Crypto.MD5(str).toString();
+export function md5(str) {
+  return cryptoMd5(str).toString();
 }

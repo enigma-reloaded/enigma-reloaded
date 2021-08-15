@@ -1,8 +1,8 @@
-import {Link} from "react-router-dom";
-import logo from "../../assets/enigma-logo.jpg";
+import {Link} from 'react-router-dom';
+import logo from '../../assets/enigma-logo.jpg';
 
-export default function PageNavigation(){
-  return(
+export default function PageNavigation() {
+  return (
     <>
       <div className="flex justify-center">
         <img src={logo} alt="enigma"/>
@@ -12,13 +12,13 @@ export default function PageNavigation(){
         <NavigationItem text="Contacts" to="/contacts"/>
       </div>
     </>
-  )
+  );
 }
 
-function NavigationItem({text, to}){
-  return(
+function NavigationItem({text, to}) {
+  return (
     <div className="mx-1 text-center bg-black p-2 rounded text-white">
       <Link to={to}>{text}</Link>
     </div>
-  )
+  );
 }

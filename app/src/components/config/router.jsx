@@ -1,11 +1,11 @@
 import {
-  HashRouter
+  HashRouter,
 } from 'react-router-dom';
 
-export default function Router({children}){
-  return(
+export default function Router({children}) {
+  return (
     <HashRouter>
       {children}
     </HashRouter>
-  )
+  );
 }

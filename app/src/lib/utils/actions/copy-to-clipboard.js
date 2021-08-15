@@ -1,4 +1,4 @@
-export function copyToClipboard(text){
+export function copyToClipboard(text) {
   const input = document.createElement('input');
   input.setAttribute('value', text);
   document.body.appendChild(input);

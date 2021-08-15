@@ -1,3 +1,3 @@
-export default function LatestContacts(){
+export default function LatestContacts() {
 
 }
