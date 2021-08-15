@@ -1,7 +1,7 @@
 import HomePage from "./components/pages/home";
 import AppLayout from "./components/page/layout";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
