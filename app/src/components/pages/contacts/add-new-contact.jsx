@@ -1,3 +1,4 @@
+import {importContactFromString} from '../../../lib/contacts/import-contact-from-string';
 import {isEmpty} from 'lodash';
 import {useState} from '@hookstate/core';
 import Modal from '../../utils/modal';
@@ -14,6 +15,11 @@ export function AddNewContact() {
 
   function addNewContact(e) {
     e.preventDefault();
+    importContactFromString(state.inputPkNameEmail.get());
+    state.merge({
+      inputPkNameEmail: '',
+      modalOpened: false,
+    });
   }
 
   function changeInputPkNameEmail(e) {

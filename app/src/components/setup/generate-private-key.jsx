@@ -57,7 +57,7 @@ export default function SetupGeneratePrivateKey({children}) {
       secretKey: Array.from(keyPair.secretKey),
     });
     setItemInStorage('name', state.nameValue.get());
-    setItemInStorage('email', state.emailValue.get());
+    setItemInStorage('email', state.emailValue.get().toLowerCase().replace(/\s/g, ''));
     setIsPrivateKeyInitialized(true);
   }
 

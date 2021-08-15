@@ -1,5 +1,7 @@
 import {AddNewContact} from './contacts/add-new-contact';
 import {useRequireUnlock} from '../../lib/hooks/use-require-unlock';
+import ContactsList from './contacts/ contacts-list';
+import ContactsStoreLoader from './contacts/contacts-store-loader';
 
 export default function ContactsPage({children}) {
   const isUnlocked = useRequireUnlock();
@@ -16,6 +18,12 @@ export default function ContactsPage({children}) {
 
           <div className="flex justify-end">
             <AddNewContact/>
+          </div>
+
+          <div>
+            <ContactsStoreLoader>
+              <ContactsList/>
+            </ContactsStoreLoader>
           </div>
         </div>
       }

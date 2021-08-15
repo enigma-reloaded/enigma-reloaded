@@ -17,8 +17,10 @@ export default function PageNavigation() {
 
 function NavigationItem({text, to}) {
   return (
-    <div className="mx-1 text-center bg-black p-2 rounded text-white">
-      <Link to={to}>{text}</Link>
-    </div>
+    <Link to={to}>
+      <button className="mx-1 text-center bg-black p-2 rounded text-white">
+        {text}
+      </button>
+    </Link>
   );
 }

@@ -3,6 +3,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import AppLayout from './components/page/layout';
+import ContactPage from './components/pages/contact';
 import ContactsPage from './components/pages/contacts';
 import HomePage from './components/pages/home';
 import PageNavigation from './components/page/navigation';
@@ -22,6 +23,12 @@ export default function App() {
 
           <Route path="/unlock">
             <UnlockPage/>
+          </Route>
+
+          <Route path="/contacts/:id">
+            <ContactPage>
+              <PageNavigation/>
+            </ContactPage>
           </Route>
 
           <Route path="/contacts">
