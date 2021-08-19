@@ -7,8 +7,8 @@ import {useState} from '@hookstate/core';
 import HomePageDescription from '../pages/home/home-page-description';
 import Modal from '../utils/modal';
 
-export default function SetupGeneratePrivateKey({children}) {
-  const [isPrivateKeyInitialized, setIsPrivateKeyInitialized] = useLocalForage('pk-initialized');
+export default function SetupGeneratePrivateKey() {
+  const [_, setIsPrivateKeyInitialized] = useLocalForage('pk-initialized'); // eslint-disable-line no-unused-vars
 
   const state = useState({
     confirmMatch: true,
@@ -72,8 +72,6 @@ export default function SetupGeneratePrivateKey({children}) {
   function changeEmailValue(e) {
     state.merge({emailValue: e.target.value});
   }
-
-  if (isPrivateKeyInitialized) return children;
 
   return (
     <div>

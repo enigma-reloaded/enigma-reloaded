@@ -5,11 +5,11 @@ import {md5} from '../../../lib/utils/format/md5';
 import {stringToU8} from '../../../lib/utils/format/string-to-u8';
 import {undetectableSplitString} from '../../../lib/utils/undetectable/split-string';
 import {useEncryptedStorage} from '../../../lib/hooks/use-encrypted-storage';
-import {usePublicKey} from '../../../lib/hooks/use-public-key';
+import {useKeyPairs} from '../../../lib/hooks/use-key-pairs';
 import {useState} from '@hookstate/core';
 
 export default function ShowSharablePublicKey() {
-  const publicKey = usePublicKey();
+  const {publicKey} = useKeyPairs();
   const readableKey = formatKeyReadable(publicKey);
   const [name] = useEncryptedStorage('name');
   const [email] = useEncryptedStorage('email');
@@ -21,6 +21,7 @@ export default function ShowSharablePublicKey() {
   });
 
   if (!readableKey) return null;
+  if (!name || !email) return null;
 
   function copyPk(e) {
     e.preventDefault();

@@ -65,3 +65,11 @@ export async function getContactsStore() {
 
   return contactsStore;
 }
+
+export async function getContact(id) {
+  const contactStore = await getContactsStore();
+
+  return contactStore.contacts.find((contact) => {
+    return contact.id.get() === id;
+  });
+}

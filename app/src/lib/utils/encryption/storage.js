@@ -1,5 +1,6 @@
 import * as localforage from 'localforage';
 import {EncryptStorage} from './encrypted-storage';
+import {resetKeyPairs} from '../../hooks/use-key-pairs';
 let encryptStorage;
 window.localforage = localforage;
 
@@ -19,4 +20,5 @@ export function setStoragePin(pin) {
 
 export function disableStorage() {
   encryptStorage = null;
+  resetKeyPairs();
 }

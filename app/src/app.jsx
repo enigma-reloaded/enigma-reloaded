@@ -1,46 +1,48 @@
+import {AppSetup} from './components/page/app-setup';
 import {
   Route,
   Switch,
 } from 'react-router-dom';
+import {UnlockedRoute} from './components/page/unlocked';
 import AppLayout from './components/page/layout';
 import ContactPage from './components/pages/contact';
 import ContactsPage from './components/pages/contacts';
 import HomePage from './components/pages/home';
-import PageNavigation from './components/page/navigation';
+import PageNotFound from './components/pages/page-not-found';
+import PageTitle from './components/page/page-title';
 import Router from './components/config/router';
 import UnlockPage from './components/pages/unlock';
 
 export default function App() {
   return (
-    <Router>
-      <AppLayout>
-        <Switch>
-          <Route path="/" exact>
-            <HomePage>
-              <PageNavigation/>
-            </HomePage>
-          </Route>
+    <PageTitle>
+      <Router>
+        <AppLayout>
+          <Switch>
+            <UnlockedRoute path="/" exact>
+              <HomePage/>
+            </UnlockedRoute>
 
-          <Route path="/unlock">
-            <UnlockPage/>
-          </Route>
+            <UnlockedRoute path="/contacts/:id">
+              <ContactPage/>
+            </UnlockedRoute>
 
-          <Route path="/contacts/:id">
-            <ContactPage>
-              <PageNavigation/>
-            </ContactPage>
-          </Route>
+            <UnlockedRoute path="/contacts">
+              <ContactsPage/>
+            </UnlockedRoute>
 
-          <Route path="/contacts">
-            <ContactsPage>
-              <PageNavigation/>
-            </ContactsPage>
-          </Route>
+            <Route path="/unlock">
+              <AppSetup>
+                <UnlockPage/>
+              </AppSetup>
+            </Route>
 
-          <Route path="*">
-          </Route>
-        </Switch>
-      </AppLayout>
-    </Router>
+            <Route path="*">
+              <PageNotFound/>
+            </Route>
+          </Switch>
+        </AppLayout>
+      </Router>
+    </PageTitle>
   );
 }

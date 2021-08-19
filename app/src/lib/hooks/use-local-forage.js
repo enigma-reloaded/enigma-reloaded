@@ -1,18 +1,31 @@
 import * as localforage from 'localforage';
-import {useEffect, useState} from 'react';
+import {createState, useState} from '@hookstate/core';
+import {useEffect} from 'react';
+const globalState = createState({});
 
 export function useLocalForage(keyName) {
-  const [state, setState] = useState();
+  const state = useState(globalState);
+
   useEffect(() => {
+    if (state[keyName].get() !== undefined) return;
+
     localforage.getItem(keyName).then((value) => {
-      setState(value);
+      state.merge({
+        [keyName]: value,
+      });
     });
-  }, [setState, keyName]);
+  }, [keyName, state]);
 
-  const setStateWrapper = (value) => {
-    setState(value);
+  function setter(value) {
+    state.merge({
+      [keyName]: value,
+    });
     localforage.setItem(keyName, value);
-  };
+  }
+  let outputValue = state[keyName].get();
+  if (outputValue === undefined) {
+    outputValue = 'NOT_READY';
+  }
 
-  return [state, setStateWrapper];
+  return [outputValue, setter];
 }
