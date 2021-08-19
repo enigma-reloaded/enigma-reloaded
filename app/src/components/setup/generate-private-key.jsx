@@ -4,6 +4,7 @@ import {passwordStrength} from 'check-password-strength';
 import {setItemInStorage, setStoragePin} from '../../lib/utils/encryption/storage';
 import {useLocalForage} from '../../lib/hooks/use-local-forage';
 import {useState} from '@hookstate/core';
+import HomePageDescription from '../pages/home/home-page-description';
 import Modal from '../utils/modal';
 
 export default function SetupGeneratePrivateKey({children}) {
@@ -76,9 +77,13 @@ export default function SetupGeneratePrivateKey({children}) {
 
   return (
     <div>
-      <button onClick={openSetupPinModal}>
-        Get started
-      </button>
+      <HomePageDescription>
+        <div className="flex justify-center">
+          <button onClick={openSetupPinModal} className="bg-black text-white text-4xl rounded p-2">
+            Get started
+          </button>
+        </div>
+      </HomePageDescription>
 
       <Modal isOpened={state.setupPinModal.get()} close={closeSetupPinModal}>
         <form className="pure-form pure-form-aligned" onSubmit={generatePrivateKey}>
@@ -87,22 +92,31 @@ export default function SetupGeneratePrivateKey({children}) {
 
             <div className="pure-control-group">
               <input name="name" value={state.nameValue.get()} onChange={changeNameValue} placeholder="Enter your name" className="w-full"/>
+              <span className="pure-form-message">Optional</span>
             </div>
 
             <div className="pure-control-group">
-              <input type="email" name="email" value={state.emailValue.get()} onChange={changeEmailValue} placeholder="Enter email(to have a avatar)" className="w-full"/>
+              <input type="email" name="email" value={state.emailValue.get()} onChange={changeEmailValue} placeholder="Your email to have a avatar from gravatar.com" className="w-full"/>
+              <span className="pure-form-message">Optional</span>
             </div>
 
             <div className="pure-control-group">
               <input name="pin" value={state.pinValue.get()} onChange={changePinValue} placeholder="Enter new PIN" className="w-full" required/>
-              <span className="pure-form-message">{state.passwordStrength.get()}</span>
+              {
+                state.pinValue.get().length > 0 &&
+                 <span className="pure-form-message">{state.passwordStrength.get()}</span>
+              }
+              <span className="pure-form-message">You can't recover or change the PIN later. <span className="underline">Make sure you remember it and keep it secret</span></span>
             </div>
 
             <div className="pure-control-group">
-              <input name="pinConfirm" value={state.confirmPinValue.get()} onChange={changeConfirmPinValue} placeholder="Confirm your pin" className="w-full" required/>
+              <input name="pinConfirm" value={state.confirmPinValue.get()} onChange={changeConfirmPinValue}
+                placeholder="Confirm your PIN"
+                className="w-full"
+                required/>
               {
                 !state.confirmMatch.get() &&
-                  <span className="pure-form-message">Pins don't match</span>
+                  <span className="pure-form-message text-red-500">Pins don't match</span>
               }
             </div>
 

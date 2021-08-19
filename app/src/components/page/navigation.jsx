@@ -1,7 +1,11 @@
 import {Link} from 'react-router-dom';
+import {useLocalForage} from '../../lib/hooks/use-local-forage';
 import logo from '../../assets/enigma-logo.jpg';
 
 export default function PageNavigation() {
+  const [isPrivateKeyInitialized] = useLocalForage('pk-initialized');
+  if (!isPrivateKeyInitialized) return null;
+
   return (
     <>
       <div className="flex justify-center">

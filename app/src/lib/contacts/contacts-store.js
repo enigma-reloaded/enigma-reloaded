@@ -55,6 +55,7 @@ export async function getContactsStore() {
 
   loadedFromStorage = true;
   let contacts = await getItemFromStorage('contacts');
+  if (isEmpty(contacts)) return contactsStore;
 
   contacts = contacts.map((c) => {
     return new RecordContact(c);
