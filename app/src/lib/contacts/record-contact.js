@@ -1,3 +1,4 @@
+import {loadPrivateMessagesForContact} from '../private-messages/private-messages-store';
 import {removeContact, saveContact} from './contacts-store';
 
 export class RecordContact {
@@ -6,6 +7,7 @@ export class RecordContact {
     this.name = name;
     this.emailHash = emailHash;
     this.publicKey = publicKey;
+    this.messages = [];
   }
 
   save() {
@@ -27,5 +29,9 @@ export class RecordContact {
     const result = this.serialize();
     delete result.id;
     return result;
+  }
+
+  loadPrivateMessages(hookstate) {
+    hookstate.messages.set(loadPrivateMessagesForContact(this));
   }
 }

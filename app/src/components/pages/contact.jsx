@@ -1,12 +1,16 @@
+import {Helmet} from 'react-helmet-async';
+import {Link, Route, Switch, useParams, useRouteMatch} from 'react-router-dom';
+import {buildPageTitle} from '../page/page-title';
 import {getContact} from '../../lib/contacts/contacts-store';
 import {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
 import ContactAvatar from '../contacts/avatar';
-import {Helmet} from "react-helmet-async";
-import {buildPageTitle} from "../page/page-title";
+import PrivateMessages from './contact/private-messages';
+import PublicMessages from './contact/public-messages';
 
 export default function ContactPage() {
   const {id} = useParams();
+  const {path, url} = useRouteMatch();
+
   const [state, setState] = useState({
     contact: null,
     ready: false,
@@ -32,7 +36,7 @@ export default function ContactPage() {
     return (
       <>
         <Helmet>
-          <title>{buildPageTitle("Contact not found")}</title>
+          <title>{buildPageTitle('Contact not found')}</title>
         </Helmet>
         <div>
           Contact not found
@@ -52,6 +56,27 @@ export default function ContactPage() {
             <ContactAvatar contact={contact} height="h-20" width="w-20"/>
           </div>
           <h1 className="text-center">{contact.name.get()}</h1>
+
+          <div>
+            <div className="my-1 flex justify-center">
+              <div className="px-1 underline">
+                <Link to={`${url}`}>Private Messages</Link>
+              </div>
+              <div className="px-1 underline">
+                <Link to={`${url}/public-messages`}>Public Messages</Link>
+              </div>
+            </div>
+
+            <Switch>
+              <Route exact path={path}>
+                <PrivateMessages contact={contact}/>
+              </Route>
+
+              <Route path={`${path}/public-messages`}>
+                <PublicMessages />
+              </Route>
+            </Switch>
+          </div>
         </div>
       </div>
     </>

@@ -1,10 +1,5 @@
-import {
-  encodeBase64,
-} from 'tweetnacl-util';
-import {isEmpty} from 'lodash';
+import {formatToBase64Undetectable} from '../undetectable/format-to-base-64-undetectable';
 
 export function formatKeyReadable(key) {
-  if (isEmpty(key)) return;
-
-  return encodeBase64(key);
+  return formatToBase64Undetectable(key);
 }

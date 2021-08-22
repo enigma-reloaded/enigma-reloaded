@@ -1,6 +1,6 @@
 import {copyToClipboard} from '../../../lib/utils/actions/copy-to-clipboard';
-import {encodeBase64} from 'tweetnacl-util';
 import {formatKeyReadable} from '../../../lib/utils/format/keys';
+import {formatToBase64Undetectable} from '../../../lib/utils/undetectable/format-to-base-64-undetectable';
 import {md5} from '../../../lib/utils/format/md5';
 import {stringToU8} from '../../../lib/utils/format/string-to-u8';
 import {undetectableSplitString} from '../../../lib/utils/undetectable/split-string';
@@ -13,7 +13,7 @@ export default function ShowSharablePublicKey() {
   const readableKey = formatKeyReadable(publicKey);
   const [name] = useEncryptedStorage('name');
   const [email] = useEncryptedStorage('email');
-  const encodedName = name ? encodeBase64(stringToU8(name)) : '';
+  const encodedName = name ? formatToBase64Undetectable(stringToU8(name)) : '';
   const encodedEmail = email ? md5(email) : '';
   const output = `${readableKey}.${encodedName}.${encodedEmail}`;
   const state = useState({
