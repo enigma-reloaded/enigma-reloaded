@@ -31,7 +31,7 @@ export class RecordContact {
     return result;
   }
 
-  loadPrivateMessages(hookstate) {
-    hookstate.messages.set(loadPrivateMessagesForContact(this));
+  async loadPrivateMessages(hookstate) {
+    hookstate.messages.set(await loadPrivateMessagesForContact(this));
   }
 }

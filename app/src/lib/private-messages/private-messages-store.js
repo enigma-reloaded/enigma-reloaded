@@ -2,10 +2,11 @@ import {PrivateMessageRecord} from './private-message-record';
 import {getItemFromStorage} from '../utils/encryption/storage';
 import {isEmpty} from 'lodash';
 
-export function loadPrivateMessagesForContact(contact) {
+export async function loadPrivateMessagesForContact(contact) {
   const key = `private-messages-${contact.id}`;
 
-  const rawMessages = getItemFromStorage(key);
+  const rawMessages = await getItemFromStorage(key);
+
   if (isEmpty(rawMessages)) return [];
 
   return rawMessages.map((m) => {

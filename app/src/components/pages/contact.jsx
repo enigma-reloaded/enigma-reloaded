@@ -2,7 +2,8 @@ import {Helmet} from 'react-helmet-async';
 import {Link, Route, Switch, useParams, useRouteMatch} from 'react-router-dom';
 import {buildPageTitle} from '../page/page-title';
 import {getContact} from '../../lib/contacts/contacts-store';
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
+import {useState} from '@hookstate/core';
 import ContactAvatar from '../contacts/avatar';
 import PrivateMessages from './contact/private-messages';
 import PublicMessages from './contact/public-messages';
@@ -10,29 +11,25 @@ import PublicMessages from './contact/public-messages';
 export default function ContactPage() {
   const {id} = useParams();
   const {path, url} = useRouteMatch();
-
-  const [state, setState] = useState({
+  const state = useState({
     contact: null,
     ready: false,
   });
 
   useEffect(() => {
     getContact(id).then((contact) => {
-      setState((s) => {
-        return {
-          ...s,
-          contact,
-          ready: true,
-        };
+      state.merge({
+        contact,
+        ready: true,
       });
     });
-  }, [id, setState]);
+  }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const {contact, ready} = state;
 
-  if (!contact && !ready) return null;
+  if (!contact?.id?.get() && !ready.get()) return null;
 
-  if (!contact) {
+  if (!contact?.id?.get()) {
     return (
       <>
         <Helmet>

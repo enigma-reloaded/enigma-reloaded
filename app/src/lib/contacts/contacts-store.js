@@ -69,7 +69,11 @@ export async function getContactsStore() {
 export async function getContact(id) {
   const contactStore = await getContactsStore();
 
-  return contactStore.contacts.find((contact) => {
+  const record = contactStore.contacts.find((contact) => {
     return contact.id.get() === id;
   });
+
+  if (!record.get()) return {};
+
+  return new RecordContact(JSON.parse(JSON.stringify(record.get())));
 }

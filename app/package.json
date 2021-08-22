@@ -21,6 +21,7 @@
     "react-scripts": "4.0.3",
     "react-use": "^17.2.4",
     "secure-web-storage": "^1.0.2",
+    "timeago-react": "^3.0.3",
     "tweetnacl": "^1.0.3",
     "tweetnacl-util": "^0.15.1",
     "use-onclickoutside": "^0.4.0",

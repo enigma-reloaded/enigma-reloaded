@@ -1,8 +1,22 @@
-import {chunkString} from '../string/chunk-string';
 import {randomNumber} from '../numbers/random-number';
 
 export function undetectableSplitString(str) {
-  const slices = Math.ceil(randomNumber(3, str.length - 4) / 6);
+  let output = '';
+  const strLng = str.length;
+  let nextWordSize;
 
-  return chunkString(str, slices).join(' ');
+  for (let i = 0; i < strLng; i++) {
+    if (!nextWordSize) {
+      nextWordSize = randomNumber(1, 10);
+    }
+
+    output += str[i];
+    nextWordSize -= 1;
+
+    if (!nextWordSize) {
+      output += ' ';
+    }
+  }
+
+  return output;
 }

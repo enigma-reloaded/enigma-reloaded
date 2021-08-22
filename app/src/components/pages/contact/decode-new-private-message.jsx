@@ -5,7 +5,7 @@ import {useState as reactUseState, useEffect, useRef} from 'react';
 import {useState} from '@hookstate/core';
 import Modal from '../../utils/modal';
 
-export default function CreateNewPrivateMessage({contact}) {
+export default function DecodeNewPrivateMessage({contact}) {
   const editorRef = useRef();
   const state = useState({
     modalIsOpened: false,
@@ -45,7 +45,7 @@ export default function CreateNewPrivateMessage({contact}) {
   return (
     <>
       <button type="submit" className="pure-button pure-button-primary bg-black w-1/3" onClick={openModal}>
-        Encrypt new message
+        Decrypt message
       </button>
 
       <Modal isOpened={state.modalIsOpened.get()} close={closeModal}>
