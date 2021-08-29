@@ -1,6 +1,7 @@
 import {useEffect} from 'react';
 import CreateNewPrivateMessage from './create-new-private-message';
 import DecodeNewPrivateMessage from './decode-new-private-message';
+import EncryptFile from './encrypt-file';
 import Message from './message';
 
 export default function PrivateMessages({contact}) {
@@ -16,8 +17,18 @@ export default function PrivateMessages({contact}) {
       </div>
 
       <div className="py-2 flex justify-between">
-        <DecodeNewPrivateMessage contact={contact}/>
-        <CreateNewPrivateMessage contact={contact}/>
+        <div className="w-1/2 pr-1">
+          <DecodeNewPrivateMessage contact={contact}/>
+
+          <div className="pt-1">
+          </div>
+        </div>
+        <div className="w-1/2 pl-1">
+          <CreateNewPrivateMessage contact={contact}/>
+          <div className="pt-1">
+            <EncryptFile contact={contact}/>
+          </div>
+        </div>
       </div>
 
       {

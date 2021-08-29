@@ -2,6 +2,7 @@ import {box, randomBytes} from 'tweetnacl';
 import {decodeBase64, decodeUTF8} from 'tweetnacl-util';
 import {formatToBase64Undetectable} from '../undetectable/format-to-base-64-undetectable';
 import {getPrivateKey} from './keys';
+import {sample} from 'lodash';
 
 export async function encryptMessage(publicKeyString, messageString) {
   const pubKeyUInt8Array = decodeBase64(publicKeyString);
@@ -14,5 +15,11 @@ export async function encryptMessage(publicKeyString, messageString) {
       pubKeyUInt8Array,
       await getPrivateKey(),
   );
-  return formatToBase64Undetectable(encryptedMessage);
+  return formatToBase64Undetectable(encryptedMessage) + formatNonce(nonce);
+}
+
+function formatNonce(nonce) {
+  const char = sample(['?', '!', '.', ',']);
+
+  return char + formatToBase64Undetectable(nonce);
 }

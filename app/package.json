@@ -19,6 +19,7 @@
     "react-helmet-async": "^1.0.9",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-toastify": "^7.0.4",
     "react-use": "^17.2.4",
     "secure-web-storage": "^1.0.2",
     "timeago-react": "^3.0.3",

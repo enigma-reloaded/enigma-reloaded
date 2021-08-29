@@ -44,8 +44,8 @@ export default function CreateNewPrivateMessage({contact}) {
 
   return (
     <>
-      <button type="submit" className="pure-button pure-button-primary bg-black w-1/3" onClick={openModal}>
-        Encrypt new message
+      <button type="submit" className="pure-button pure-button-primary bg-black w-full" onClick={openModal}>
+        Encrypt message
       </button>
 
       <Modal isOpened={state.modalIsOpened.get()} close={closeModal}>

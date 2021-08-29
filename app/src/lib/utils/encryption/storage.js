@@ -10,7 +10,7 @@ export function getItemFromStorage(keyName) {
 }
 
 export function setItemInStorage(keyName, value) {
-  if(!encryptStorage) throw "Pin not set"; // eslint-disable-line
+  if (!encryptStorage) throw new Error('Pin not set');
   return encryptStorage.encrypt(keyName, value);
 }
 

@@ -1,8 +1,10 @@
+import 'react-toastify/dist/ReactToastify.css';
 import {AppSetup} from './components/page/app-setup';
 import {
   Route,
   Switch,
 } from 'react-router-dom';
+import {ToastContainer} from 'react-toastify';
 import {UnlockedRoute} from './components/page/unlocked';
 import AppLayout from './components/page/layout';
 import ContactPage from './components/pages/contact';
@@ -15,34 +17,37 @@ import UnlockPage from './components/pages/unlock';
 
 export default function App() {
   return (
-    <PageTitle>
-      <Router>
-        <AppLayout>
-          <Switch>
-            <UnlockedRoute path="/" exact>
-              <HomePage/>
-            </UnlockedRoute>
+    <>
+      <PageTitle>
+        <Router>
+          <AppLayout>
+            <Switch>
+              <UnlockedRoute path="/" exact>
+                <HomePage/>
+              </UnlockedRoute>
 
-            <UnlockedRoute path="/contacts/:id">
-              <ContactPage/>
-            </UnlockedRoute>
+              <UnlockedRoute path="/contacts/:id">
+                <ContactPage/>
+              </UnlockedRoute>
 
-            <UnlockedRoute path="/contacts">
-              <ContactsPage/>
-            </UnlockedRoute>
+              <UnlockedRoute path="/contacts">
+                <ContactsPage/>
+              </UnlockedRoute>
 
-            <Route path="/unlock">
-              <AppSetup>
-                <UnlockPage/>
-              </AppSetup>
-            </Route>
+              <Route path="/unlock">
+                <AppSetup>
+                  <UnlockPage/>
+                </AppSetup>
+              </Route>
 
-            <Route path="*">
-              <PageNotFound/>
-            </Route>
-          </Switch>
-        </AppLayout>
-      </Router>
-    </PageTitle>
+              <Route path="*">
+                <PageNotFound/>
+              </Route>
+            </Switch>
+          </AppLayout>
+        </Router>
+      </PageTitle>
+      <ToastContainer/>
+    </>
   );
 }
