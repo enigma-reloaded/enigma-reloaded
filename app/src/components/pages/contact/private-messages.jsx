@@ -1,6 +1,7 @@
 import {useEffect} from 'react';
 import CreateNewPrivateMessage from './create-new-private-message';
 import DecodeNewPrivateMessage from './decode-new-private-message';
+import DecryptFile from './decrypt-file';
 import EncryptFile from './encrypt-file';
 import Message from './message';
 
@@ -21,6 +22,7 @@ export default function PrivateMessages({contact}) {
           <DecodeNewPrivateMessage contact={contact}/>
 
           <div className="pt-1">
+            <DecryptFile contact={contact}/>
           </div>
         </div>
         <div className="w-1/2 pl-1">

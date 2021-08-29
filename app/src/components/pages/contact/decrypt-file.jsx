@@ -1,6 +1,7 @@
+import {decryptFile} from '../../../lib/utils/encryption/decrypt-file';
 import {downloadFile} from '../../../lib/utils/files/download-file';
-import {encryptFile} from '../../../lib/utils/encryption/encrypt-file';
 import {feedBackSuccess} from '../../../lib/feedback/success';
+import {feedbackError} from '../../../lib/feedback/error';
 import {useRef} from 'react';
 import {useState} from '@hookstate/core';
 import Modal from '../../utils/modal';
@@ -28,17 +29,23 @@ export default function DecryptFile({contact}) {
       fileProcessing: true,
     });
 
-    const {outputFile, fileName} = await encryptFile(contact.publicKey.get(), e.target.files[0]);
-    e.target.value = '';
+    try {
+      const {decryptedFile, fileName} = await decryptFile(contact.publicKey.get(), e.target.files[0]);
+      downloadFile(decryptedFile, fileName);
+    } catch {
+      e.target.value = '';
+      state.merge({fileProcessing: false});
+      return feedbackError('Unable to decrypt file');
+    }
 
-    downloadFile(outputFile, fileName);
+    e.target.value = '';
 
     state.merge({
       fileProcessing: false,
       modalIsOpened: false,
     });
 
-    feedBackSuccess('File encrypted');
+    feedBackSuccess('File ready');
   }
 
   function selectFile(e) {
@@ -49,7 +56,7 @@ export default function DecryptFile({contact}) {
   return (
     <>
       <button type="submit" className="pure-button pure-button-primary bg-black w-full" onClick={openModal}>
-        Encrypt file
+        Decrypt file
       </button>
 
       <Modal isOpened={state.modalIsOpened.get()} close={closeModal}>
@@ -60,7 +67,7 @@ export default function DecryptFile({contact}) {
         </div>
 
         <button className="pure-button pure-button-primary bg-black w-full" onClick={selectFile} disabled={state.fileProcessing.get()}>
-          Select unencrypted file
+          Select encrypted file
         </button>
       </Modal>
     </>

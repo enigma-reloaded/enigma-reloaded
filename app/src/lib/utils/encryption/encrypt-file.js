@@ -17,9 +17,10 @@ export async function encryptFile(publicKeyString, file) {
   const outputFile = new Blob([outputFileIntArray], {
     type: 'application/octet-stream',
   });
+  const extension = file.name.split('.').pop();
 
   return {
-    fileName: `${formatToBase64Undetectable(nonce)}.txt`,
+    fileName: `${formatToBase64Undetectable(nonce)}-${extension}.txt`,
     outputFile,
   };
 }
