@@ -39,7 +39,7 @@ ___
 
 Ready to self host, just go [gh-pages branch](https://github.com/enigma-reloaded/enigma-reloaded/tree/gh-pages), download the branch as zip and deploy it.
 
-Just remember: **Don't be evil**
+Just remember: **Don't be evil**, as others forgoooot.
 
 ## License
 GPL-3.0 License
