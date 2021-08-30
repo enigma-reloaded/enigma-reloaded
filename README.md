@@ -11,16 +11,16 @@ No ads, tracking and external services.
 Implements private public key encryption.
 
 
-## Usage
+## Overview usage
 
-1. Get your public key to your buddy, securely or not, doesn't matter
+1. Sent your public key to your buddy, securely or not, doesn't matter
 
 ```
 4 kpAP5S 1LUAx PThouG dIO/J3AaG ea3kGRIr12 gTJPy8.Q29 u Z3Jh 
 dHM gZm9yIHVz a W5nIGVu aWdt YQ.e0e a57cdd 4c0f509 193d6ad180 eab227
 ```
 
-2. Add your buddy public key to your contacts list
+2. Ask your buddy for his public key, then add him to your contacts
 
 ```
 1u N5w8BS tLUqrwCh3 QNhUC c54H7fDdkt 3B44 zC8C0l8..
