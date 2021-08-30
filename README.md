@@ -1,5 +1,7 @@
 # Enigma Reloaded 📱
 
+![Old enigma](https://raw.githubusercontent.com/enigma-reloaded/enigma-reloaded/master/app/src/assets/enigma-logo.jpg)
+
 [https://enigma-reloaded.github.io/enigma-reloaded/](https://enigma-reloaded.github.io/enigma-reloaded/)
 
 Offline ready web app that allows encrypted communication across less trustworthy channels.
