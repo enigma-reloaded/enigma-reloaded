@@ -12,19 +12,21 @@ Implements private public key encryption.
 Encrypt this:
 
 ```
-Hi there
+Hi there, my name is Enigma, and I'm your simple tool to ensure your messages are 100% safe 😉
 ```
 
 To this simple format, which you can even print
 
 ```
-sD 2dF0 aYTXzI ZvW09m mVperMhx nyq P9W. hao4 G+cv5Q5 +0ZPoR t3JNK9 UoOeoEnRB 
+AGJ OdW3nm6PlR 76LIllM vtX Pfy2ZD q1bFN6Kf2X L yX4NcoD mAu 8GBmJ/ 4McW 
+7smv Yg kR E Lh83dP UgG5LxJRNw 8YRnE7Up e1 J7x gj PW5il zUE0qoj8GE 
+hUqSdA DJXcIm xJ46xctBV 7lAtXbrgE NdCIQ? TN2a/iNr5N Pl8SP/iA0Z 0w2ilPdE S6fy
 ```
 
 And decrypt it back to the original
 
 ```
-Hi there
+Hi there, my name is Enigma, and I'm your simple tool to ensure your messages are 100% safe 😉
 ```
 
 
