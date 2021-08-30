@@ -33,8 +33,13 @@ So he can decrypt it back to the original
 Hi there, my name is Enigma, and I'm your simple tool to ensure your messages are 100% safe 😉
 ```
 
+and works the same with any file you want to transfer securely.
+
+___
 
 Ready to self host, just go [gh-pages branch](https://github.com/enigma-reloaded/enigma-reloaded/tree/gh-pages), download the branch as zip and deploy it.
+
+Just remember: **Don't be evil**
 
 ## License
 GPL-3.0 License
