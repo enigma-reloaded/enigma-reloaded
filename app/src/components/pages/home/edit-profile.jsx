@@ -52,7 +52,7 @@ export default function EditProfile() {
           </fieldset>
 
           <div className="pure-control-group">
-            <input name="name" value={name} onChange={updateName} placeholder="Name" className="w-full" required/>
+            <input name="name" value={name} onChange={updateName} placeholder="Name" className="w-full"/>
           </div>
 
           <div className="pure-control-group">

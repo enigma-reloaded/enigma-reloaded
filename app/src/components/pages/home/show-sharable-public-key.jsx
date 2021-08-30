@@ -14,6 +14,7 @@ export default function ShowSharablePublicKey() {
   const {publicKey} = useKeyPairs();
   const readableKey = formatKeyReadable(publicKey);
   const {name, email} = useMultipleEncryptedStorage('name', 'email');
+
   const encodedName = name ? formatToBase64Undetectable(stringToU8(name)) : '';
   const encodedEmail = email ? md5(email) : '';
   const output = `${readableKey}.${encodedName}.${encodedEmail}`;
@@ -28,7 +29,7 @@ export default function ShowSharablePublicKey() {
   }, []);
 
   if (!readableKey) return null;
-  if (!name || !email) return null;
+  if (name === undefined || email === undefined) return null;
 
   function copyPk(e) {
     e.preventDefault();

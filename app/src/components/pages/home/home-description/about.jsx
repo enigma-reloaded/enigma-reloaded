@@ -54,7 +54,7 @@ export default function EnigmaAbout() {
           FAQ
         </div>
 
-        <FaqQuestion title="What is enigma?">
+        <FaqQuestion title="What is Enigma Reloaded?">
           Enigma is a simple DIY(Do it yourself) program that runs inside your browser that helps you:
           <div className="pl-4">
             <ul className="list-disc">
@@ -71,7 +71,7 @@ export default function EnigmaAbout() {
           </div>
         </FaqQuestion>
 
-        <FaqQuestion title="Why is called enigma?">
+        <FaqQuestion title="Why is called Enigma?">
           <div>
             It's a common name that is already associated with secrecy and privacy, and your life should be private. Enigma reloaded single purpose is to help people <a className="underline"
               href="https://www.youtube.com/watch?v=0hLjuVyIIrs" target="_blank">against the current Big Tech mass surveillance</a>
