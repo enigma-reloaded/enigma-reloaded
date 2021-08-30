@@ -4,9 +4,11 @@ import {formatToBase64Undetectable} from '../../../lib/utils/undetectable/format
 import {md5} from '../../../lib/utils/format/md5';
 import {stringToU8} from '../../../lib/utils/format/string-to-u8';
 import {undetectableSplitString} from '../../../lib/utils/undetectable/split-string';
+import {useEffect} from 'react';
 import {useKeyPairs} from '../../../lib/hooks/use-key-pairs';
 import {useMultipleEncryptedStorage} from '../../../lib/hooks/use-encrypted-storage';
 import {useState} from '@hookstate/core';
+let copyTimeout;
 
 export default function ShowSharablePublicKey() {
   const {publicKey} = useKeyPairs();
@@ -19,6 +21,12 @@ export default function ShowSharablePublicKey() {
     showCopied: false,
   });
 
+  useEffect(() => {
+    return () => {
+      if (copyTimeout) clearTimeout(copyTimeout);
+    };
+  }, []);
+
   if (!readableKey) return null;
   if (!name || !email) return null;
 
@@ -28,7 +36,7 @@ export default function ShowSharablePublicKey() {
     copyToClipboard(undetectableStr);
     state.merge({showCopied: true});
 
-    setTimeout(() => {
+    copyTimeout = setTimeout(() => {
       state.merge({showCopied: false});
     }, 1500);
   }

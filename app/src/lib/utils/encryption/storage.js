@@ -18,6 +18,15 @@ export function setStoragePin(pin) {
   encryptStorage = new EncryptStorage(pin, localforage);
 }
 
+export async function exportStorage() {
+  const result = {};
+  await encryptStorage.storage.iterate((value, key) => {
+    result[key] = value;
+  });
+
+  return result;
+}
+
 export function disableStorage() {
   encryptStorage = null;
   resetKeyPairs();

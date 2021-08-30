@@ -1,6 +1,7 @@
 import {Helmet} from 'react-helmet-async';
 import {Link} from 'react-router-dom';
 import {buildPageTitle} from '../page/page-title';
+import EditProfile from './home/edit-profile';
 import ShowSharablePublicKey from './home/show-sharable-public-key';
 
 export default function HomePage() {
@@ -14,9 +15,7 @@ export default function HomePage() {
         <span className="underline">About</span>
       </Link>
 
-      <Link to="/edit">
-        <span className="underline">Edit profile</span>
-      </Link>
+      <EditProfile/>
 
       <Link to="/backup">
         <span className="underline">Backup service</span>

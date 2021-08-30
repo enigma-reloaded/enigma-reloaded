@@ -9,6 +9,7 @@ import {ToastContainer} from 'react-toastify';
 import {UnlockedRoute} from './components/page/unlocked';
 import AboutPage from './components/pages/about';
 import AppLayout from './components/page/layout';
+import BackupPage from './components/pages/backup';
 import ContactPage from './components/pages/contact';
 import ContactsPage from './components/pages/contacts';
 import HomePage from './components/pages/home';
@@ -30,6 +31,10 @@ export default function App() {
 
               <UnlockedRoute path="/about">
                 <AboutPage/>
+              </UnlockedRoute>
+
+              <UnlockedRoute path="/backup">
+                <BackupPage/>
               </UnlockedRoute>
 
               <UnlockedRoute path="/contacts/:id">
