@@ -53,7 +53,7 @@ export default function DecodeNewPrivateMessage({contact}) {
 
   return (
     <>
-      <button type="submit" className="pure-button pure-button-primary bg-black w-full" onClick={openModal}>
+      <button className="pure-button pure-button-primary bg-black w-full" onClick={openModal}>
         Decrypt message
       </button>
 
@@ -64,7 +64,7 @@ export default function DecodeNewPrivateMessage({contact}) {
           </div>
 
           <div className="flex justify-end my-2">
-            <button type="submit" className="pure-button pure-button-primary bg-black w-1/3" disabled={!editorState.getCurrentContent().hasText()}>
+            <button type="submit" className="pure-button pure-button-primary pure-button-primary bg-black" disabled={!editorState.getCurrentContent().hasText()}>
               Decrypt message
             </button>
           </div>

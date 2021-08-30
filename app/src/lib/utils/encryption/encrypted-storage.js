@@ -1,4 +1,5 @@
 import * as Crypto from 'crypto-js';
+import {feedbackError} from '../../feedback/error';
 
 export class EncryptStorage {
   constructor(secret, storage) {
@@ -15,7 +16,16 @@ export class EncryptStorage {
       throw new Error('invalid type');
     }
     const encryptedData = Crypto.AES.encrypt(data, this.secret);
-    return this.storage.setItem(key, encryptedData.toString());
+    let result;
+
+    try {
+      result = this.storage.setItem(key, encryptedData.toString());
+    } catch (e) {
+      feedbackError('Unable to save more data');
+      throw e;
+    }
+
+    return result;
   }
 
   async decrypt(key) {

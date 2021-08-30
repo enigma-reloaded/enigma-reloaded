@@ -4,15 +4,14 @@ import {formatToBase64Undetectable} from '../../../lib/utils/undetectable/format
 import {md5} from '../../../lib/utils/format/md5';
 import {stringToU8} from '../../../lib/utils/format/string-to-u8';
 import {undetectableSplitString} from '../../../lib/utils/undetectable/split-string';
-import {useEncryptedStorage} from '../../../lib/hooks/use-encrypted-storage';
 import {useKeyPairs} from '../../../lib/hooks/use-key-pairs';
+import {useMultipleEncryptedStorage} from '../../../lib/hooks/use-encrypted-storage';
 import {useState} from '@hookstate/core';
 
 export default function ShowSharablePublicKey() {
   const {publicKey} = useKeyPairs();
   const readableKey = formatKeyReadable(publicKey);
-  const [name] = useEncryptedStorage('name');
-  const [email] = useEncryptedStorage('email');
+  const {name, email} = useMultipleEncryptedStorage('name', 'email');
   const encodedName = name ? formatToBase64Undetectable(stringToU8(name)) : '';
   const encodedEmail = email ? md5(email) : '';
   const output = `${readableKey}.${encodedName}.${encodedEmail}`;
@@ -40,7 +39,7 @@ export default function ShowSharablePublicKey() {
         <div className="font-bold">
           My public key, name and email hashed
         </div>
-        <div>
+        <div className="break-all">
           {
             state.showCopied.get() ? 'Copied' : output
           }

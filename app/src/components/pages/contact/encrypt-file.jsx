@@ -48,7 +48,7 @@ export default function EncryptFile({contact}) {
 
   return (
     <>
-      <button type="submit" className="pure-button pure-button-primary bg-black w-full" onClick={openModal}>
+      <button className="pure-button pure-button-primary bg-black w-full" onClick={openModal}>
         Encrypt file
       </button>
 

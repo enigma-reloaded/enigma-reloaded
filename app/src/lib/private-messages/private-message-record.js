@@ -22,13 +22,16 @@ export class PrivateMessageRecord {
   }
 
   async save() {
-    this.contact.messages.merge([this]);
+    this.contact.messages.set((m) => {
+      m.splice(0, 0, this);
+      return m;
+    });
     const key = `private-messages-${this.contact.id.get()}`;
 
     let rawMessages = await getItemFromStorage(key);
     if (isEmpty(rawMessages)) rawMessages = [];
 
-    rawMessages.push(this.serialize());
+    rawMessages.splice(0, 0, this.serialize());
 
     setItemInStorage(key, rawMessages);
   }
@@ -36,24 +39,27 @@ export class PrivateMessageRecord {
   serialize() {
     return {
       createdAt: this.createdAt,
-      encryptedMessage: this.encryptedMessage,
+      encryptedMessage: this.encryptedMessage.substring(0, 8),
       id: this.id,
       messageRaw: this.messageRaw,
       mine: this.mine,
     };
   }
 
-  async destroy() {
-    const contactIndex = this.contact.messages.findIndex((message) => {
+  async destroy(contact) {
+    const contactIndex = contact.messages.findIndex((message) => {
       return message.id.get() === this.id;
     });
 
-    this.contact.messages[contactIndex].set(none);
-    const key = `private-messages-${this.contact.id.get()}`;
+    const key = `private-messages-${contact.id.get()}`;
 
     let rawMessages = await getItemFromStorage(key);
     rawMessages = rawMessages.filter((message) => {
       return message.id !== this.id;
+    });
+
+    contact.messages.merge({
+      [contactIndex]: none,
     });
 
     setItemInStorage(key, rawMessages);

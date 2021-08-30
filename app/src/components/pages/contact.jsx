@@ -5,6 +5,7 @@ import {getContact} from '../../lib/contacts/contacts-store';
 import {useEffect} from 'react';
 import {useState} from '@hookstate/core';
 import ContactAvatar from '../contacts/avatar';
+import EditContact from './contact/edit-contact';
 import PrivateMessages from './contact/private-messages';
 import PublicMessages from './contact/public-messages';
 
@@ -52,7 +53,12 @@ export default function ContactPage() {
           <div className="flex justify-center pb-2">
             <ContactAvatar contact={contact} height="h-20" width="w-20"/>
           </div>
-          <h1 className="text-center">{contact.name.get()}</h1>
+          <div className="flex flex-wrap justify-center items-center">
+            <h1 className="text-right pr-1">{contact.name.get()}</h1>
+            <div className="pl-1">
+              <EditContact contact={contact}/>
+            </div>
+          </div>
 
           <div>
             <div className="my-1 flex justify-center">

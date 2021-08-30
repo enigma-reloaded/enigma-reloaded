@@ -1,3 +1,4 @@
+import 'purecss';
 import 'react-toastify/dist/ReactToastify.css';
 import {AppSetup} from './components/page/app-setup';
 import {
@@ -6,6 +7,7 @@ import {
 } from 'react-router-dom';
 import {ToastContainer} from 'react-toastify';
 import {UnlockedRoute} from './components/page/unlocked';
+import AboutPage from './components/pages/about';
 import AppLayout from './components/page/layout';
 import ContactPage from './components/pages/contact';
 import ContactsPage from './components/pages/contacts';
@@ -24,6 +26,10 @@ export default function App() {
             <Switch>
               <UnlockedRoute path="/" exact>
                 <HomePage/>
+              </UnlockedRoute>
+
+              <UnlockedRoute path="/about">
+                <AboutPage/>
               </UnlockedRoute>
 
               <UnlockedRoute path="/contacts/:id">

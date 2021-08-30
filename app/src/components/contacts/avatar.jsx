@@ -1,5 +1,18 @@
+import {isEmpty} from 'lodash';
+import {useLocalForage} from '../../lib/hooks/use-local-forage';
+import userPlaceholder from '../../assets/user-placeholder.svg';
+
 export default function ContactAvatar({contact, height, width}) {
-  const src = `http://www.gravatar.com/avatar/${contact.emailHash.get()}`;
+  const [gravatarEnabled] = useLocalForage('gravatar-enabled');
+  if (gravatarEnabled === 'NOT_READY') return null;
+
+  const emailHash = contact.emailHash.get();
+  let src;
+  if (isEmpty(emailHash) || !gravatarEnabled) {
+    src = userPlaceholder;
+  } else {
+    src = `http://www.gravatar.com/avatar/${emailHash}`;
+  }
 
   return (
     <img src={src} className={`rounded-full ${height} ${width}`}/>

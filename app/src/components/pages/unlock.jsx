@@ -63,7 +63,7 @@ export default function UnlockPage() {
               }
             </div>
 
-            <button type="submit" className="pure-button pure-button-primary w-full" disabled={isEmpty(state.pinValue.get())}>
+            <button type="submit" className="pure-button pure-button-primary w-full bg-black font-bold" disabled={isEmpty(state.pinValue.get())}>
               Unlock
             </button>
           </fieldset>

@@ -1,11 +1,14 @@
-import {useEffect} from 'react';
+import {useEffect, useRef} from 'react';
 import CreateNewPrivateMessage from './create-new-private-message';
 import DecodeNewPrivateMessage from './decode-new-private-message';
 import DecryptFile from './decrypt-file';
 import EncryptFile from './encrypt-file';
 import Message from './message';
+import ViewportList from 'react-viewport-list';
 
 export default function PrivateMessages({contact}) {
+  const ref = useRef(null);
+
   useEffect(() => {
     if (contact.messages.length > 0) return;
     contact.get().loadPrivateMessages(contact);
@@ -33,15 +36,19 @@ export default function PrivateMessages({contact}) {
         </div>
       </div>
 
-      {
-        contact.messages.map((message) => {
-          return (
-            <div key={message.id.get()}>
-              <Message message={message}/>
+      <div className="scroll-container" ref={ref}>
+        <ViewportList
+          viewportRef={ref}
+          items={contact.messages}
+          itemMinSize={20}
+        >
+          {(message) => (
+            <div key={message.id.get()} className="item">
+              <Message message={message} contact={contact}/>
             </div>
-          );
-        }).reverse()
-      }
+          )}
+        </ViewportList>
+      </div>
     </div>
   );
 }

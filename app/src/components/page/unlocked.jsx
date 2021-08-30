@@ -11,11 +11,17 @@ export default function Unlocked({children}) {
       <div>
         <PageNavigation/>
       </div>
-      {
-        isUnlocked && <div>
-          {children}
+      <div className="min-h-screen flex flex-col justify-between">
+        {
+          isUnlocked && <div>
+            {children}
+          </div>
+        }
+
+        <div className="text-center pt-4">
+          Don't be evil
         </div>
-      }
+      </div>
     </div>
   );
 }

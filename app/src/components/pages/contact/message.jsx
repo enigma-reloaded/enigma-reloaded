@@ -1,7 +1,8 @@
+import {feedBackSuccess} from '../../../lib/feedback/success';
 import {mergeStyles} from '../../../lib/utils/string/merge-styles';
 import TimeAgo from 'timeago-react';
 
-export default function Message({message}) {
+export default function Message({message, contact}) {
   const {messageRaw, createdAt, mine, encryptedMessage} = message;
   let ownerClassContainer; let ownerClass;
 
@@ -11,6 +12,14 @@ export default function Message({message}) {
   } else {
     ownerClassContainer = 'pr-20';
     ownerClass = 'bg-green-300';
+  }
+
+  function destroy(e) {
+    e.preventDefault();
+
+    message.get().destroy(contact);
+
+    feedBackSuccess('Message removed');
   }
 
   return (
@@ -24,6 +33,9 @@ export default function Message({message}) {
 
         <div className="text-xs border-solid border-gray-300 border-t p-1">
           #{encryptedMessage.get().substring(0, 8)}
+          <button className="ml-1 text-red-500" onClick={destroy}>
+            (x)
+          </button>
         </div>
       </div>
     </div>

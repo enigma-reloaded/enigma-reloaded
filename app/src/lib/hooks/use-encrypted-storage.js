@@ -16,3 +16,28 @@ export function useEncryptedStorage(keyName) {
 
   return [state, setStateWrapper];
 }
+
+export function useMultipleEncryptedStorage(...keyNames) {
+  const [state, setState] = useState({});
+
+  useEffect(() => {
+    const promises = keyNames.map(async (keyName) => {
+      return {
+        keyName,
+        value: await getItemFromStorage(keyName),
+      };
+    });
+
+    Promise.all(promises).then((values) => {
+      const result = {};
+
+      values.forEach((v) => {
+        result[v.keyName] = v.value;
+      });
+
+      setState(result);
+    });
+  }, [setState, keyNames]);
+
+  return state;
+}

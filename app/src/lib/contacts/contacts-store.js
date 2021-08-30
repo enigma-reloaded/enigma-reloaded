@@ -1,7 +1,7 @@
 import {RecordContact} from './record-contact';
 import {createState} from '@hookstate/core';
 import {getItemFromStorage, setItemInStorage} from '../utils/encryption/storage';
-import {isEmpty} from 'lodash';
+import {isEmpty, sortBy} from 'lodash';
 import {none} from '@hookstate/core';
 
 let loadedFromStorage;
@@ -22,10 +22,14 @@ export function saveContact(contactRecord) {
       const storeContact = contactsStore.contacts.find((contact) => {
         return contact.publicKey.get() === contactRecord.publicKey;
       });
+
       storeContact.merge(contactRecord.serializeWithoutId());
     } else {
-      contactsStore.contacts.merge([contactRecord]);
-      contacts.push(contactRecord.serialize());
+      contactsStore.contacts.set((c) => {
+        c.splice(0, 0, contactRecord);
+        return c;
+      });
+      contacts.splice(0, 0, contactRecord.serialize());
     }
 
     setItemInStorage('contacts', contacts);
@@ -61,7 +65,9 @@ export async function getContactsStore() {
     return new RecordContact(c);
   });
 
-  contactsStore.merge({contacts});
+  const sortedContacts = sortBy(contacts, 'name');
+
+  contactsStore.merge({contacts: sortedContacts});
 
   return contactsStore;
 }
