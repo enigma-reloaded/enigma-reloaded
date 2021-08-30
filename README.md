@@ -15,7 +15,7 @@ Encrypt this:
 Hi there, my name is Enigma, and I'm your simple tool to ensure your messages are 100% safe 😉
 ```
 
-To this simple format, which you can even print
+To this simple format, which can be sent over any text based message platform to your buddy
 
 ```
 AGJ OdW3nm6PlR 76LIllM vtX Pfy2ZD q1bFN6Kf2X L yX4NcoD mAu 8GBmJ/ 4McW 
@@ -23,7 +23,7 @@ AGJ OdW3nm6PlR 76LIllM vtX Pfy2ZD q1bFN6Kf2X L yX4NcoD mAu 8GBmJ/ 4McW
 hUqSdA DJXcIm xJ46xctBV 7lAtXbrgE NdCIQ? TN2a/iNr5N Pl8SP/iA0Z 0w2ilPdE S6fy
 ```
 
-And decrypt it back to the original
+So he can decrypt it back to the original
 
 ```
 Hi there, my name is Enigma, and I'm your simple tool to ensure your messages are 100% safe 😉
