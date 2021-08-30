@@ -9,6 +9,12 @@ export function getItemFromStorage(keyName) {
   return encryptStorage.decrypt(keyName);
 }
 
+export function deleteItemInStorage(keyName) {
+  if (!encryptStorage) throw new Error('Pin not set');
+
+  return encryptStorage.storage.removeItem(keyName);
+}
+
 export function setItemInStorage(keyName, value) {
   if (!encryptStorage) throw new Error('Pin not set');
   return encryptStorage.encrypt(keyName, value);

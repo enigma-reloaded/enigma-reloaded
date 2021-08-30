@@ -1,9 +1,13 @@
 import {decodeBase64} from 'tweetnacl-util';
 
 export function decodeBase64Undetectable(base64String) {
-  if (base64String.length % 4 !== 0) {
-    base64String += ('===').slice(0, 4 - (base64String.length % 4));
+  return decodeBase64(restoreBase64String(base64String));
+}
+
+export function restoreBase64String(base64StringUndetectable) {
+  if (base64StringUndetectable.length % 4 !== 0) {
+    base64StringUndetectable += ('===').slice(0, 4 - (base64StringUndetectable.length % 4));
   }
 
-  return decodeBase64(base64String);
+  return base64StringUndetectable;
 }

@@ -1,6 +1,6 @@
 import {RecordContact} from './record-contact';
 import {createState} from '@hookstate/core';
-import {getItemFromStorage, setItemInStorage} from '../utils/encryption/storage';
+import {deleteItemInStorage, getItemFromStorage, setItemInStorage} from '../utils/encryption/storage';
 import {isEmpty, sortBy} from 'lodash';
 import {none} from '@hookstate/core';
 
@@ -38,6 +38,7 @@ export function saveContact(contactRecord) {
 
 export async function removeContact(contactRecord) {
   let contacts = await getItemFromStorage('contacts');
+  const {id} = contactRecord;
   if (isEmpty(contacts)) return;
   contacts = contacts.filter((contact) => {
     return contact.publicKey !== contactRecord.publicKey;
@@ -50,6 +51,7 @@ export async function removeContact(contactRecord) {
   if (contactIndex !== undefined) contactsStore.contacts[contactIndex].set(none);
 
   await setItemInStorage('contacts', contacts);
+  await deleteItemInStorage(`private-messages-${id}`);
 }
 
 export async function getContactsStore() {
