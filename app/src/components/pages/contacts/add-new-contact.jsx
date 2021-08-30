@@ -44,7 +44,10 @@ export function AddNewContact() {
             <legend>Contact public key, name and email hashed</legend>
 
             <div className="pure-control-group">
-              <input name="inputPkNameEmail" value={state.inputPkNameEmail.get()} onChange={changeInputPkNameEmail} placeholder="Paste the contact code" className="w-full"/>
+              <input name="inputPkNameEmail" value={state.inputPkNameEmail.get()} onChange={changeInputPkNameEmail} placeholder="Paste the contact code"
+                autoComplete="nope"
+                className="w-full"
+              />
             </div>
 
             <button type="submit" className="pure-button pure-button-primary bg-black w-full" disabled={isEmpty(state.inputPkNameEmail.get())}>
