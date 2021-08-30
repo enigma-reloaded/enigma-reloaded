@@ -29,7 +29,7 @@ dHM gZm9yIHVz a W5nIGVu aWdt YQ.e0e a57cdd 4c0f509 193d6ad180 eab227
 3. Then you can talk, encrypt this:
 
 ```
-Hi there, my name is Enigma, and I'm your simple tool to ensure your messages are 100% safe 😉
+What's up dude? Write me smth back after u see this
 ```
 
 4. To this simple format, which can be sent over any text based message platform to your buddy
@@ -43,7 +43,7 @@ hUqSdA DJXcIm xJ46xctBV 7lAtXbrgE NdCIQ? TN2a/iNr5N Pl8SP/iA0Z 0w2ilPdE S6fy
 5. So he can decrypt it back to the original
 
 ```
-Hi there, my name is Enigma, and I'm your simple tool to ensure your messages are 100% safe 😉
+What's up dude? Write me smth back after u see this
 ```
 
 and this works the same with any file you want to transfer securely.
