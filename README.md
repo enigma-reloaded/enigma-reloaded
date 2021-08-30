@@ -4,10 +4,14 @@
 
 [https://enigma-reloaded.github.io/enigma-reloaded/](https://enigma-reloaded.github.io/enigma-reloaded/)
 
-Offline ready web app that allows encrypted communication across less trustworthy channels.
+Offline ready web app, that allows encrypted communication across less trustworthy channels.
+
+No ads, tracking and external services.
 
 Implements private public key encryption.
 
+
+## Usage
 
 Encrypt this:
 
@@ -30,7 +34,7 @@ Hi there, my name is Enigma, and I'm your simple tool to ensure your messages ar
 ```
 
 
-Ready to self host, just go [gh-pages branch](https://github.com/enigma-reloaded/enigma-reloaded/tree/gh-pages) and deploy it.
+Ready to self host, just go [gh-pages branch](https://github.com/enigma-reloaded/enigma-reloaded/tree/gh-pages), download the branch as zip and deploy it.
 
 ## License
 GPL-3.0 License
