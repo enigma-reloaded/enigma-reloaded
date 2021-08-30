@@ -73,8 +73,8 @@ export default function EnigmaAbout() {
 
         <FaqQuestion title="Why is called enigma?">
           <div>
-            It's a common name, that is already associated with secrecy, and your life should be private. Enigma reloaded single purpose is to help people <a className="underline"
-              href="https://www.youtube.com/watch?v=0hLjuVyIIrs" target="_blank">against the current Big Tech Surveillance</a>
+            It's a common name that is already associated with secrecy and privacy, and your life should be private. Enigma reloaded single purpose is to help people <a className="underline"
+              href="https://www.youtube.com/watch?v=0hLjuVyIIrs" target="_blank">against the current Big Tech mass surveillance</a>
           </div>
         </FaqQuestion>
 
@@ -105,17 +105,29 @@ export default function EnigmaAbout() {
           </div>
         </FaqQuestion>
 
-        <FaqQuestion title="Why did you build this?">
-          As a person who knows the truth and has the skills, I felt morally obligated.
+        <FaqQuestion title="Why did Enigma reloaded appear now?">
+          <span className="underline font-bold">Free speech on the internet must have a real chance</span> against multi trillion dollar companies and governments which try to suppress it.
+          <div>
+            2021 might be the last year when internet is not 100% censored.
+          </div>
         </FaqQuestion>
 
         <FaqQuestion title="Is it 'really' for free?">
           <div>
             <div>
-              100% free, no ads, no tracking. If Enigma Reloaded helped you, that's enough for me. But if you want, you can donate me some Monero
+              100% free, no ads, no tracking. If Enigma Reloaded helped you, that's enough. But if you want, you can donate me some Monero to the project
             </div>
             <div>
-              <b>1234</b>
+              <b>866bdf5Dk8h2NdJBaukVpq9qwTjiiwRZWLE6e5yDXFRAcTCkozB3qDiiDoSvEQXBPhBKbXyzwxP88KkHEZBPsVui2NAKhVH</b>
+            </div>
+          </div>
+        </FaqQuestion>
+  
+        <FaqQuestion title="Can I self host it?">
+          <div>
+            <div>
+              Sure, just <a href="https://github.com/enigma-reloaded/enigma-reloaded/archive/refs/heads/gh-pages.zip" target="_blank" className="underline">
+              download this zip file</a> and deploy it to your server.
             </div>
           </div>
         </FaqQuestion>

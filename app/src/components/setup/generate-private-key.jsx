@@ -99,7 +99,9 @@ export default function SetupGeneratePrivateKey() {
             </div>
 
             <div className="pure-control-group">
-              <input name="pin" value={state.pinValue.get()} onChange={changePinValue} placeholder="Enter new PIN" className="w-full" required/>
+              <input value={state.pinValue.get()} onChange={changePinValue} placeholder="Enter new PIN" className="w-full"
+                autoComplete="nope"
+                required/>
               {
                 state.pinValue.get().length > 0 &&
                  <span className="pure-form-message">{state.passwordStrength.get()}</span>
@@ -108,9 +110,10 @@ export default function SetupGeneratePrivateKey() {
             </div>
 
             <div className="pure-control-group">
-              <input name="pinConfirm" value={state.confirmPinValue.get()} onChange={changeConfirmPinValue}
+              <input value={state.confirmPinValue.get()} onChange={changeConfirmPinValue}
                 placeholder="Confirm your PIN"
                 className="w-full"
+                autoComplete="nope"
                 required/>
               {
                 !state.confirmMatch.get() &&
