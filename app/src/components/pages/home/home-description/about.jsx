@@ -115,14 +115,14 @@ export default function EnigmaAbout() {
         <FaqQuestion title="Is it 'really' for free?">
           <div>
             <div>
-              100% free, no ads, no tracking. If Enigma Reloaded helped you, that's enough. But if you want, you can donate me some Monero to the project
+              100% free, no ads, no tracking. If Enigma Reloaded helped you, that's enough. But if you want, you can donate some Monero to the project
             </div>
             <div>
               <b>866bdf5Dk8h2NdJBaukVpq9qwTjiiwRZWLE6e5yDXFRAcTCkozB3qDiiDoSvEQXBPhBKbXyzwxP88KkHEZBPsVui2NAKhVH</b>
             </div>
           </div>
         </FaqQuestion>
-  
+
         <FaqQuestion title="Can I self host it?">
           <div>
             <div>
