@@ -1,4 +1,5 @@
 import FaqQuestion from './faq-question';
+import demo from '../../../../assets/example.mp4';
 
 export default function EnigmaAbout() {
   return (
@@ -46,6 +47,31 @@ export default function EnigmaAbout() {
               </li>
             </ul>
           </div>
+        </div>
+      </div>
+
+      <div>
+        <div className="font-bold mb-2">
+          Demo:
+        </div>
+
+        <div className="md:w-2/3 w-full mx-auto">
+          <video className="w-full" controls>
+            <source src={demo} type="video/mp4"/>
+          </video>
+
+          <div className="italic text-right text-xs">
+            <p>
+              Credits for Music: www.bensound.com" or "Royalty Free Music from Bensound
+            </p>
+            <p>
+              Chat app: stin.to
+            </p>
+          </div>
+        </div>
+
+        <div>
+          As you can see in the video, encrypted messages are just simple words, which you can send using existing technologies.
         </div>
       </div>
 
@@ -117,7 +143,7 @@ export default function EnigmaAbout() {
             <div>
               100% free, no ads, no tracking. If Enigma Reloaded helped you, that's enough. But if you want, you can donate some Monero to the project
             </div>
-            <div>
+            <div className="break-all py-2">
               <b>866bdf5Dk8h2NdJBaukVpq9qwTjiiwRZWLE6e5yDXFRAcTCkozB3qDiiDoSvEQXBPhBKbXyzwxP88KkHEZBPsVui2NAKhVH</b>
             </div>
           </div>
