@@ -32,9 +32,12 @@ export default function SetupGeneratePrivateKey() {
   function changePinValue(e) {
     const value = e.target.value;
     const strength = passwordStrength(value).value;
-    state.merge({
-      passwordStrength: strength,
-      pinValue: e.target.value,
+    state.merge((s) => {
+      return {
+        confirmMatch: value === s.confirmPinValue,
+        passwordStrength: strength,
+        pinValue: e.target.value,
+      };
     });
   }
 
