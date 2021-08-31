@@ -1,16 +1,58 @@
-# Enigma Reloaded
+# Enigma Reloaded 📱
 
-<!--
-**enigma-reloaded/enigma-reloaded** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+![Old enigma](https://raw.githubusercontent.com/enigma-reloaded/enigma-reloaded/master/app/src/assets/enigma-logo.jpg)
 
-Here are some ideas to get you started:
+[https://enigma-reloaded.github.io/enigma-reloaded/](https://enigma-reloaded.github.io/enigma-reloaded/)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Offline ready web app, that allows encrypted communication across less trustworthy channels.
+
+No ads, tracking and external services.
+
+Implements private public key encryption.
+
+
+## Overview usage
+
+1. Sent your public key to your buddy, securely or not, doesn't matter
+
+```
+4 kpAP5S 1LUAx PThouG dIO/J3AaG ea3kGRIr12 gTJPy8.Q29 u Z3Jh 
+dHM gZm9yIHVz a W5nIGVu aWdt YQ.e0e a57cdd 4c0f509 193d6ad180 eab227
+```
+
+2. Ask your buddy for his public key, then add him to your contacts
+
+```
+1u N5w8BS tLUqrwCh3 QNhUC c54H7fDdkt 3B44 zC8C0l8..
+```
+
+3. Then you can talk, encrypt this:
+
+```
+What's up dude? Write me smth back after u see this
+```
+
+4. To this simple format, which can be sent over any text based message platform to your buddy
+
+```
+AGJ OdW3nm6PlR 76LIllM vtX Pfy2ZD q1bFN6Kf2X L yX4NcoD mAu 8GBmJ/ 4McW 
+7smv Yg kR E Lh83dP UgG5LxJRNw 8YRnE7Up e1 J7x gj PW5il zUE0qoj8GE 
+hUqSdA DJXcIm xJ46xctBV 7lAtXbrgE NdCIQ? TN2a/iNr5N Pl8SP/iA0Z 0w2ilPdE S6fy
+```
+
+5. So he can decrypt it back to the original
+
+```
+What's up dude? Write me smth back after u see this
+```
+
+and this works the same with any file you want to transfer securely.
+
+___
+
+Ready to self host, just go [gh-pages branch](https://github.com/enigma-reloaded/enigma-reloaded/tree/gh-pages), download the branch as zip and deploy it.
+
+Just remember: **Don't be evil**, as others forgoooot.
+
+## License
+GPL-3.0 License
