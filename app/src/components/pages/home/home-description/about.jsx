@@ -50,6 +50,12 @@ export default function EnigmaAbout() {
         </div>
       </div>
 
+      <div className="py-4">
+        <a href="https://github.com/enigma-reloaded/enigma-reloaded/blob/master/why-not-pgp.md" target="_blank" className="underline text-xl">
+          Answer for: "Why not use PGP, instead of this?"
+        </a>
+      </div>
+
       <div>
         <div className="font-bold mb-2">
           Demo:
