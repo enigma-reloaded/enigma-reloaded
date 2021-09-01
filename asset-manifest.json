@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/enigma-reloaded/static/css/main.1c6fdf54.chunk.css",
-    "main.js": "/enigma-reloaded/static/js/main.d071d5b9.chunk.js",
-    "main.js.map": "/enigma-reloaded/static/js/main.d071d5b9.chunk.js.map",
+    "main.js": "/enigma-reloaded/static/js/main.eca1cd23.chunk.js",
+    "main.js.map": "/enigma-reloaded/static/js/main.eca1cd23.chunk.js.map",
     "runtime-main.js": "/enigma-reloaded/static/js/runtime-main.76623a1d.js",
     "runtime-main.js.map": "/enigma-reloaded/static/js/runtime-main.76623a1d.js.map",
     "static/css/2.534aff17.chunk.css": "/enigma-reloaded/static/css/2.534aff17.chunk.css",
@@ -25,6 +25,6 @@
     "static/css/2.534aff17.chunk.css",
     "static/js/2.3cf41277.chunk.js",
     "static/css/main.1c6fdf54.chunk.css",
-    "static/js/main.d071d5b9.chunk.js"
+    "static/js/main.eca1cd23.chunk.js"
   ]
 }
