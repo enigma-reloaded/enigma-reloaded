@@ -11,6 +11,9 @@ No ads, tracking and external services.
 Implements private public key encryption.
 
 
+[Why not just use PGP, it's already there and works?](https://github.com/enigma-reloaded/enigma-reloaded/blob/master/why-not-pgp.md)
+
+
 # Demo
 
 https://user-images.githubusercontent.com/88687080/131566625-b6a8f9b2-83ba-43cc-ba1d-542f9794bfd5.mp4
