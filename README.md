@@ -2,7 +2,7 @@
 
 ![Old enigma](https://raw.githubusercontent.com/enigma-reloaded/enigma-reloaded/master/app/src/assets/enigma-logo.jpg)
 
-Latest version is deployed at: [https://enigma-reloaded.github.io/enigma-reloaded/](https://enigma-reloaded.github.io/enigma-reloaded/)
+[https://enigma-reloaded.github.io/enigma-reloaded/](https://enigma-reloaded.github.io/enigma-reloaded/)
 
 Offline ready web app, that allows encrypted communication across less trustworthy channels.
 
@@ -18,7 +18,11 @@ Implements private public key encryption.
 
 https://user-images.githubusercontent.com/88687080/131566625-b6a8f9b2-83ba-43cc-ba1d-542f9794bfd5.mp4
 
-Credits for Music: www.bensound.com" or "Royalty Free Music from Bensound
+Credits for Music: "www.bensound.com" or "Royalty Free Music from Bensound
+
+# Try it now
+
+Latest version is deployed at: [https://enigma-reloaded.github.io/enigma-reloaded/](https://enigma-reloaded.github.io/enigma-reloaded/)
 
 ## Overview usage
 
