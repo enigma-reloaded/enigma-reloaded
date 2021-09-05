@@ -61,9 +61,9 @@ What's up dude? Write me smth back after u see this
 
 and this works the same with any file you want to transfer securely.
 
-___
+# Self host
 
-Ready to self host, just go [gh-pages branch](https://github.com/enigma-reloaded/enigma-reloaded/tree/gh-pages), download the branch as zip and deploy it.
+Go [gh-pages branch](https://github.com/enigma-reloaded/enigma-reloaded/tree/gh-pages), download the branch as zip and upload the content of the zip file to a web server
 
 Just remember: **Don't be evil**, as others forgoooot.
 
