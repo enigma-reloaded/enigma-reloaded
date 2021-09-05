@@ -63,7 +63,15 @@ and this works the same with any file you want to transfer securely.
 
 ## Self host
 
-Go [gh-pages branch](https://github.com/enigma-reloaded/enigma-reloaded/tree/gh-pages), download the branch as zip and upload the content of the zip file to a web server
+To self host this app you need:
+- a simple web hosting service or a web server
+- a domain name(optional)
+- https(optional, the data is stored in your browser and not on the server)
+
+Steps after:
+- download https://github.com/enigma-reloaded/enigma-reloaded/archive/refs/heads/gh-pages.zip
+- unzip the content
+- upload the content to your hosting service or web server
 
 Just remember: **Don't be evil**, as others forgoooot.
 
